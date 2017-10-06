@@ -9,10 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
-    
     @IBOutlet weak var xpTextField: UITextField!
-    @IBOutlet weak var textbox4: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!
     
     @IBOutlet weak var startlevel: UIPickerView!
     @IBOutlet weak var endlevel: UIPickerView!
@@ -50,78 +48,45 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == startlevel {
-            //self.textbox1.text = self.xp[row]
-            
             currentLevelXP = self.xp[row]
-            
-//            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
-//                self.textbox3.text = "--"
-//                self.textbox4.isHidden = true
             
             if ((Int(desiredLevelXP)! - Int(currentLevelXP)!) < 0) {
                 self.xpTextField.text = "--"
-                self.textbox4.isHidden = true
+                self.messageTextField.isHidden = true
             }
             else {
-                //let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
-                let largeNumber = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
-                
+                let number = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = NumberFormatter.Style.decimal
-                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
+                let formattedNumber = numberFormatter.string(from: NSNumber(value:number))
                 self.xpTextField.text = formattedNumber
-                self.textbox4.isHidden = false
+                self.messageTextField.isHidden = false
             }
         }
         else if pickerView == endlevel {
-            //self.textbox2.text = self.xp[row]
-            
             desiredLevelXP = self.xp[row]
-            
-//            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
-//                self.textbox3.text = "--"
-//                self.textbox4.isHidden = true
             
             if ((Int(desiredLevelXP)! - Int(currentLevelXP)!) < 0) {
                 self.xpTextField.text = "--"
-                self.textbox4.isHidden = true
+                self.messageTextField.isHidden = true
             }
             else {
-                //let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
-                let largeNumber = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
-                
+                let number = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = NumberFormatter.Style.decimal
-                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
+                let formattedNumber = numberFormatter.string(from: NSNumber(value:number))
                 self.xpTextField.text = formattedNumber
-                self.textbox4.isHidden = false
+                self.messageTextField.isHidden = false
             }
         }
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if (textField == self.textbox1) {
-//            }
-//        else if (textField == self.textbox2) {
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         xpTextField.text = "0"
-        textbox4.text = "Experience Required"
+        messageTextField.text = "Experience Required"
         
         xpTextField.isEnabled = false
-        
-        textbox4.isHidden = true
-        
-        
-        startlevel.delegate = nil; // NEW CODE
-        startlevel.delegate = self;
-        
-        endlevel.delegate = nil; // NEW CODE
-        endlevel.delegate = self;
         
         startlevel.layer.cornerRadius = 10.0
         startlevel.clipsToBounds = true
