@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var textbox1: UITextField!
     @IBOutlet weak var textbox2: UITextField!
     @IBOutlet weak var textbox3: UITextField!
+    @IBOutlet weak var textbox4: UITextField!
     
     @IBOutlet weak var startlevel: UIPickerView!
     @IBOutlet weak var endlevel: UIPickerView!
@@ -51,62 +52,55 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == startlevel {
             self.textbox1.text = self.xpOwned[row]
-            self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
             
-            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) <= 0) {
-                self.textbox3.text = "0"
+            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
+                self.textbox3.text = "--"
+                self.textbox4.isHidden = true
             }
             else {
-                self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
+                //self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
+                
+                
+                
+                //////////////
+                let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = NumberFormatter.Style.decimal
+                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
+                //let test = String(largeNumber)
+                self.textbox3.text = formattedNumber
+                self.textbox4.isHidden = false
+                //////////////
             }
-            //self.startlevel.isHidden = true
-            //self.textbox3.text = (xp[startlevel.toInt()] - xp[endlevel.toInt()]).toString()
-            
-            
-            //self.textbox3.text = String(a3 + 10000)
-            //var b = Int(endlevel.xp[row])
-            //var b = Int(endlevel.xp[row])
-            
-            //let b: Int! = Int(xp[endlevel.selectedRow(inComponent: Int)])
-            
-            //let b: Int! = Int(endlevel.text)
-            
-            
-            
-//            let a: Int! = Int(xp[row])
-//            self.textbox1.text = String(a)
-//
-//            let b: Int! = Int(textbox2.text!)
-//            self.textbox3.text = String(b - a)
-            
         }
         else if pickerView == endlevel {
             self.textbox2.text = self.xpNeeded[row]
-            self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
             
-            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) <= 0) {
-                self.textbox3.text = "0"
+            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
+                self.textbox3.text = "--"
+                self.textbox4.isHidden = true
             }
             else {
-                self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
+                //self.textbox3.text = String(Int(textbox2.text!)! - Int(textbox1.text!)!)
+                
+                
+                //////////////
+                let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = NumberFormatter.Style.decimal
+                let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
+                //let test = String(largeNumber)
+                self.textbox3.text = formattedNumber
+                self.textbox4.isHidden = false
+                //////////////
             }
-            //self.endlevel.isHidden = true
-            
-            
-//            let a: Int! = Int(xp[row])
-//            self.textbox2.text = String(a)
-//
-//            let b: Int! = Int(textbox1.text!)
-//            self.textbox3.text = String(a - b)
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == self.textbox1) {
-            //self.startlevel.isHidden = false
             }
         else if (textField == self.textbox2) {
-            //self.endlevel.isHidden = false
         }
     }
     
@@ -120,7 +114,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
         textbox1.text = "0"
         textbox2.text = "0"
-        textbox3.text = "TESTING"
+        textbox3.text = "0"
+        textbox4.text = "Experience Required"
         
         textbox1.isEnabled = false
         textbox2.isEnabled = false
@@ -128,6 +123,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         textbox1.isHidden = true
         textbox2.isHidden = true
+        textbox4.isHidden = true
         
         
         startlevel.delegate = nil; // NEW CODE
