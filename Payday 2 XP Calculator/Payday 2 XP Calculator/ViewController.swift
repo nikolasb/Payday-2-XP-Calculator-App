@@ -120,6 +120,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
         textbox1.text = "0"
         textbox2.text = "0"
+        textbox3.text = "TESTING"
         
         textbox1.isEnabled = false
         textbox2.isEnabled = false
@@ -134,6 +135,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         endlevel.delegate = nil; // NEW CODE
         endlevel.delegate = self;
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
