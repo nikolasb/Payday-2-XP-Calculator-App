@@ -4,7 +4,7 @@ This is an application designed for iOS to allow users to calulate how much expe
 
 # Motivation
 
-I had previously created a command-line version of this idea. This application is the realization of that same program but on a  mobile device.
+I had previously created a command-line version of this idea. This application is the realization of that same program on a  mobile device.
 
 # How To Use
 
