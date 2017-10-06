@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2017-10-05 at 5.37.49 PM" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-7R-2xR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PD2Background" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-7R-2xR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -117,6 +117,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2017-10-05 at 5.37.49 PM" width="1502" height="1548"/>
+        <image name="PD2Background" width="768" height="1024"/>
     </resources>
 </document>

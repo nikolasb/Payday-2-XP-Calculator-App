@@ -524,6 +524,7 @@
 				A4E2E1821F86A6BB00331812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4E2E1831F86A6BB00331812 /* Build configuration list for PBXNativeTarget "Payday 2 XP CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +533,7 @@
 				A4E2E1851F86A6BB00331812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4E2E1861F86A6BB00331812 /* Build configuration list for PBXNativeTarget "Payday 2 XP CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +542,7 @@
 				A4E2E1881F86A6BB00331812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
