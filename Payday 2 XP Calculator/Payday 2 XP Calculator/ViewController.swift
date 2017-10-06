@@ -10,16 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
-    @IBOutlet weak var textbox1: UITextField!
-    @IBOutlet weak var textbox2: UITextField!
-    @IBOutlet weak var textbox3: UITextField!
+    
+    @IBOutlet weak var xpTextField: UITextField!
     @IBOutlet weak var textbox4: UITextField!
     
     @IBOutlet weak var startlevel: UIPickerView!
     @IBOutlet weak var endlevel: UIPickerView!
     
-    var unit1 = "0"
-    var unit2 = "0"
+    var currentLevelXP = "0"
+    var desiredLevelXP = "0"
     
     var level = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100"]
     
@@ -53,48 +52,48 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if pickerView == startlevel {
             //self.textbox1.text = self.xp[row]
             
-            unit1 = self.xp[row]
+            currentLevelXP = self.xp[row]
             
 //            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
 //                self.textbox3.text = "--"
 //                self.textbox4.isHidden = true
             
-            if ((Int(unit2)! - Int(unit1)!) < 0) {
-                self.textbox3.text = "--"
+            if ((Int(desiredLevelXP)! - Int(currentLevelXP)!) < 0) {
+                self.xpTextField.text = "--"
                 self.textbox4.isHidden = true
             }
             else {
                 //let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
-                let largeNumber = (Int(unit2)! - Int(unit1)!)
+                let largeNumber = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = NumberFormatter.Style.decimal
                 let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
-                self.textbox3.text = formattedNumber
+                self.xpTextField.text = formattedNumber
                 self.textbox4.isHidden = false
             }
         }
         else if pickerView == endlevel {
             //self.textbox2.text = self.xp[row]
             
-            unit2 = self.xp[row]
+            desiredLevelXP = self.xp[row]
             
 //            if ((Int(textbox2.text!)! - Int(textbox1.text!)!) < 0) {
 //                self.textbox3.text = "--"
 //                self.textbox4.isHidden = true
             
-            if ((Int(unit2)! - Int(unit1)!) < 0) {
-                self.textbox3.text = "--"
+            if ((Int(desiredLevelXP)! - Int(currentLevelXP)!) < 0) {
+                self.xpTextField.text = "--"
                 self.textbox4.isHidden = true
             }
             else {
                 //let largeNumber = (Int(textbox2.text!)! - Int(textbox1.text!)!)
-                let largeNumber = (Int(unit2)! - Int(unit1)!)
+                let largeNumber = (Int(desiredLevelXP)! - Int(currentLevelXP)!)
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = NumberFormatter.Style.decimal
                 let formattedNumber = numberFormatter.string(from: NSNumber(value:largeNumber))
-                self.textbox3.text = formattedNumber
+                self.xpTextField.text = formattedNumber
                 self.textbox4.isHidden = false
             }
         }
@@ -110,17 +109,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        textbox1.text = "0"
-        textbox2.text = "0"
-        textbox3.text = "0"
+        xpTextField.text = "0"
         textbox4.text = "Experience Required"
         
-        textbox1.isEnabled = false
-        textbox2.isEnabled = false
-        textbox3.isEnabled = false
+        xpTextField.isEnabled = false
         
-        textbox1.isHidden = true
-        textbox2.isHidden = true
         textbox4.isHidden = true
         
         
