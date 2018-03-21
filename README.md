@@ -1,6 +1,6 @@
 # Payday 2 XP Calculator App
 
-This is an application designed for iOS to allow users to calulate how much experience is needed to get from one level to another in the game Payday 2.
+This is an application designed for iOS to allow users to calculate how much experience is needed to get from one level to another in the game Payday 2.
 
 # Motivation
 
